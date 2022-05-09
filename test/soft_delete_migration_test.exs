@@ -7,12 +7,17 @@ defmodule Ecto.SoftDelete.Migration.Test do
 
   setup meta do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
-    {:ok, runner} = Runner.start_link({self(), Repo, __MODULE__, meta[:direction] || :forward, :up, %{level: false, sql: false}})
+
+    {:ok, runner} =
+      Runner.start_link(
+        {self(), Repo, __MODULE__, meta[:direction] || :forward, :up, %{level: false, sql: false}}
+      )
+
     Runner.metadata(runner, meta)
     {:ok, runner: runner}
   end
 
-  test "soft_delete_columns adds deleted_at column", %{runner: runner} do
+  test "soft_delete_columns adds soft_deleted_at column", %{runner: runner} do
     create table(:posts, primary_key: false) do
       soft_delete_columns()
     end
@@ -21,7 +26,6 @@ defmodule Ecto.SoftDelete.Migration.Test do
 
     flush()
 
-    assert {:create, _,
-       [{:add, :deleted_at, :utc_datetime_usec, []}]} = create_command
+    assert {:create, _, [{:add, :soft_deleted_at, :utc_datetime_usec, []}]} = create_command
   end
 end

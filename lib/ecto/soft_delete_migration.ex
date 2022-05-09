@@ -6,7 +6,7 @@ defmodule Ecto.SoftDelete.Migration do
   use Ecto.Migration
 
   @doc """
-  Adds deleted_at column to a table. This column is used to track if an item is deleted or not and when
+  Adds soft_deleted_at column to a table. This column is used to track if an item is deleted or not and when
 
       defmodule MyApp.Repo.Migrations.CreateUser do
         use Ecto.Migration
@@ -24,6 +24,6 @@ defmodule Ecto.SoftDelete.Migration do
 
   """
   def soft_delete_columns do
-    add(:deleted_at, :utc_datetime_usec, [])
+    add(:soft_deleted_at, :utc_datetime_usec, [])
   end
 end

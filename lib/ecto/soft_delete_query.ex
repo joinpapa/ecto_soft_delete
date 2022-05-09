@@ -17,6 +17,6 @@ defmodule Ecto.SoftDelete.Query do
   @spec with_undeleted(Ecto.Queryable.t) :: Ecto.Queryable.t
   def with_undeleted(query) do
     query
-    |> where([t], is_nil(t.deleted_at))
+    |> where([t], is_nil(t.soft_deleted_at))
   end
 end
