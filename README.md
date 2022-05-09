@@ -49,7 +49,8 @@ Import `Ecto.SoftDelete.Schema` into your Schema module, then add `soft_delete_s
 
 ### Queries
 
-To query for items that have not been deleted, use `with_undeleted(query)` which will filter out deleted items using the `deleted_at` column produced by the previous 2 steps
+
+To query for items that have not been deleted, use `with_undeleted(query)` which will filter out deleted items using the `soft_deleted_at` column produced by the previous 2 steps
 
 ```elixir
 import Ecto.SoftDelete.Query
@@ -61,6 +62,7 @@ results = Repo.all(query)
 ```
 
 ## Repos
+
 
 To support deletion in repos, just add `use Ecto.SoftDelete.Repo` to your repo.
 After that, the functions `soft_delete!/1`, `soft_delete/1` and `soft_delete_all/1` will be available for you.
