@@ -106,7 +106,11 @@ mix deps.get
 
 ## Configuration
 
-There are currently no configuration options.
+This Library adds a new option to your application's `Repo` module. Calling any `Repo` operation passing the `with_deleted: true` option will show soft deleted entities.
+Example: 
+```
+Repo.all(Post, with_deleted: true)
+```
 
 ## Usage
 
@@ -116,3 +120,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/revelr
 
 Everyone is welcome to participate in the project. We expect contributors to
 adhere the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](https://github.com/revelrylabs/ecto_soft_delete/blob/master/CODE_OF_CONDUCT.md)).
+
