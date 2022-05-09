@@ -31,11 +31,10 @@ defmodule EctoSoftDelete.Mixfile do
 
   defp deps do
     [
-      {:ecto_sql, "~> 3.0", override: false},
-      {:postgrex, "0.15.13", only: [:test], override: true},
-      {:ex_doc, "~> 0.16", only: [:dev, :test], override: false},
-      {:credo, "~> 1.0", only: [:dev, :test], override: false},
-      {:excoveralls, "~> 0.8", only: [:dev, :test], override: false}
+      {:ecto_sql, "~> 3.0"},
+      {:ex_doc, "~> 0.16", only: [:dev, :test]},
+      {:credo, "~> 1.0", only: [:dev, :test]},
+      {:excoveralls, "~> 0.8", only: [:dev, :test]}
     ]
   end
 
