@@ -4,7 +4,7 @@ defmodule EctoSoftDelete.Mixfile do
   def project do
     [
       app: :ecto_soft_delete,
-      version: "2.0.4",
+      version: "2.0.3",
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       build_embedded: Mix.env() == :prod,
@@ -31,11 +31,11 @@ defmodule EctoSoftDelete.Mixfile do
 
   defp deps do
     [
-      {:ecto_sql, "~> 3.0"},
-      {:postgrex, ">= 0.0.0", only: [:test]},
-      {:ex_doc, "~> 0.16", only: [:dev, :test]},
-      {:credo, "~> 1.0", only: [:dev, :test]},
-      {:excoveralls, "~> 0.8", only: [:dev, :test]}
+      {:ecto_sql, "~> 3.0", override: false},
+      {:postgrex, ">= 0.0.0", only: [:test], override: false},
+      {:ex_doc, "~> 0.16", only: [:dev, :test], override: false},
+      {:credo, "~> 1.0", only: [:dev, :test], override: false},
+      {:excoveralls, "~> 0.8", only: [:dev, :test], override: false}
     ]
   end
 
