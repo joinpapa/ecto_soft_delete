@@ -82,10 +82,8 @@ defmodule Ecto.SoftDelete.Repo do
         soft_deletable? = Enum.member?(fields, :soft_deleted_at)
 
         if has_include_deleted_at_clause?(query) || opts[:with_deleted] || !soft_deletable? do
-          IO.inspect(opts, pretty: true, label: "skipping deleted_at query")
           {query, opts}
         else
-          IO.puts("APPENDING DELETED AT")
           query = from(x in query, where: is_nil(x.soft_deleted_at))
           {query, opts}
         end
